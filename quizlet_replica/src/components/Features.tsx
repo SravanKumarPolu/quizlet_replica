@@ -3,7 +3,7 @@
 
 const Features = () => {
   return (
-    <section className="bg-white py-20 px-4 sm:px-6 lg:px-16 items-center justify-center">
+    <section className="bg-white py-20  items-center justify-center">
       <div className="max-w-[1024px] mx-auto space-y-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
           <div>
