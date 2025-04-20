@@ -1,17 +1,49 @@
+import { FaSearch, FaPlus } from "react-icons/fa";
+import SubjectAreasDropdown from "./SubjectAreasDropdown";
+import FullLogo from "../assets/FullLogo";
+import StudyToolsDropdown from "./StudyToolsDropdown";
 
-import quizlet from "./assets/quizlet.svg";
 const Navbar = () => {
   return (
-    <nav className="bg-base-100 px-6 py-4 shadow-md flex justify-between items-center">
-      <div className="text-2xl font-bold text-primary">
-        <img src={quizlet} />
-      </div>
-      <div className="hidden sm:flex gap-6 text-sm">
-        <a href="#" className="hover:text-primary">Home</a>
-        <a href="#" className="hover:text-primary">Features</a>
-        <a href="#" className="hover:text-primary">Pricing</a>
-        <a href="#" className="hover:text-primary">Log in</a>
-        <button className="btn btn-primary btn-sm">Sign up</button>
+    <nav className="w-full bg-white shadow-sm">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Left: Logo + Dropdowns */}
+        <div className="flex items-center gap-6 min-w-[320px]">
+          <span className="text-2xl font-bold">
+            <FullLogo />
+          </span>
+
+          <div className="relative group">
+            <StudyToolsDropdown />
+          </div>
+
+          <div className="relative group">
+            <SubjectAreasDropdown />
+          </div>
+        </div>
+
+        {/* Center: Search */}
+        <div className="hidden lg:flex flex-1 justify-center px-6">
+          <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-xl w-full max-w-[500px]">
+            <FaSearch className="text-gray-400 text-sm" />
+            <input
+              type="text"
+              placeholder="Search for a question"
+              className="bg-transparent outline-none w-full text-sm text-gray-700"
+            />
+          </div>
+        </div>
+
+        {/* Right: Create + Login */}
+        <div className="flex items-center gap-4 min-w-[150px] justify-end">
+          <button className="text-sm text-blue-600 hover:underline flex items-center gap-1">
+            <FaPlus className="text-xs" />
+            Create
+          </button>
+          <button className="bg-blue-600 text-white px-4 py-2 text-sm rounded-full font-medium hover:bg-blue-700 transition">
+            Log in
+          </button>
+        </div>
       </div>
     </nav>
   );
