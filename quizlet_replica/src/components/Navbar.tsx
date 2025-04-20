@@ -25,11 +25,11 @@ const Navbar = () => {
             <a href="/" className="text-2xl font-bold">
               <FullLogo />
             </a>
-            <div className="relative group">
+            <div className="relative group cursor-pointer">
               <StudyToolsDropdown />
             </div>
-            <div className="relative group">
-              <SubjectAreasDropdown />
+            <div className="relative group ">
+              <SubjectAreasDropdown  />
             </div>
           </div>
 

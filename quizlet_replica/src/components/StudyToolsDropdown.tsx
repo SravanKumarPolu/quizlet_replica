@@ -27,13 +27,13 @@ const StudyToolsDropdown = () => {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 text-base font-medium text-gray-800 hover:text-blue-600"
+        className="flex items-center cursor-pointer gap-1 text-base font-medium text-gray-800 hover:text-blue-600"
       >
         Study tools <FaChevronDown className="text-xs mt-0.5" />
       </button>
 
       {isOpen && (
-        <div className="absolute mt-2 w-56 bg-white border border-gray-200 shadow-xl rounded-xl z-50">
+        <div className="absolute mt-4 w-56 bg-white border border-gray-200 shadow-xl rounded-xl z-50">
           <div className="px-4 py-2 text-xs font-semibold text-gray-400">Students</div>
           <ul className="text-sm text-gray-700">
             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-3">
