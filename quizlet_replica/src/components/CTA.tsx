@@ -1,10 +1,12 @@
+import { useState } from "react";
+
 // CTA.tsx
-const flashcards = [
+const allFlashcards = [
   {
     title: "Christmas Carol Quotes & Analysis",
     terms: "25 terms",
     user: "calvinchen0205",
-    image: 'https://assets.quizlet.com/static/i/animals/123.e5f0bd4b49e7c12.jpg'
+    image: "https://assets.quizlet.com/static/i/animals/123.e5f0bd4b49e7c12.jpg"
   },
   {
     title: "LECTURE 3: Principal Asset Classes",
@@ -16,36 +18,93 @@ const flashcards = [
     title: "Edexcel GCSE 9-1 Business 3 markers - sa...",
     terms: "53 terms",
     user: "kjet06",
-    image: 'https://assets.quizlet.com/static/i/animals/107.c3e123902d831a9.jpg'
+    image: "https://assets.quizlet.com/static/i/animals/107.c3e123902d831a9.jpg"
   },
   {
     title: "L2W Cabernet Sauvignon",
     terms: "31 terms",
     user: "paterson_bh123",
-    image: 'https://assets.quizlet.com/static/i/animals/125.a46eeeaa1617163.jpg'
+    image: "https://assets.quizlet.com/static/i/animals/125.a46eeeaa1617163.jpg"
   },
   {
     title: "Spanish Vocabulary",
     terms: "1,990 terms",
     user: "uni_sheen",
-    image: 'https://assets.quizlet.com/static/i/animals/123.e5f0bd4b49e7c12.jpg'
+    image: "https://assets.quizlet.com/static/i/animals/123.e5f0bd4b49e7c12.jpg"
+  },
+
+  {
+    title: "Biology Cell Structure",
+    terms: "42 terms",
+    user: "bio_guru",
+    image: "https://www.bnf.fr/sites/default/files/2019-10/btv1b8457904c_f1.jpg"
   },
   {
-    title: "Ghost of Christmas past light up hub",
-    terms: "10 terms",
-    user: "jesshufton",
-    image: 'https://up.quizlet.com/35zkr0-Eaq3S-96s.png'
+    title: "Shakespeare Themes",
+    terms: "30 terms",
+    user: "litlover99",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    title: "JavaScript Basics",
+    terms: "60 terms",
+    user: "devwizard",
+    image: "https://media.istockphoto.com/id/1399246824/photo/digital-eye-wave-lines-stock-background.jpg?s=612x612&w=0&k=20&c=1cW5xuLcb6HPDj6CLQQFBvGK5_fJvx9eA2egik-3hAc="
   }
+,  
+  {
+    title: "French Verbs Conjugation",
+    terms: "75 terms",
+    user: "lingua_master",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80"
+  },
+ 
+  {
+    title: "Geography: Rivers & Landforms",
+    terms: "36 terms",
+    user: "geo_genius",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+  },{
+    title: "World War II Facts",
+    terms: "28 terms",
+    user: "historyhero",
+ image: "https://www.bnf.fr/sites/default/files/2019-10/btv1b8457904c_f1.jpg"
+  }
+,  
+ {
+  title: "Ghost of Christmas past light up hub",
+  terms: "10 terms",
+  user: "jesshufton",
+  image: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&w=400&q=80"
+}
+ 
 ];
 
+const flashcardsPerPage = 6;
+
 const CTA = () => {
+  const [page, setPage] = useState(1);
+
+  const totalPages = Math.ceil(allFlashcards.length / flashcardsPerPage);
+
+  const startIndex = (page - 1) * flashcardsPerPage;
+  const currentFlashcards = allFlashcards.slice(startIndex, startIndex + flashcardsPerPage);
+
+  const handlePrev = () => {
+    setPage((prev) => (prev > 1 ? prev - 1 : prev));
+  };
+
+  const handleNext = () => {
+    setPage((prev) => (prev < totalPages ? prev + 1 : prev));
+  };
   return (
     <section className="bg-[#f6f7fb] text-center py-16 px-4">
       <h2 className="text-xl font-semibold text-gray-800 mb-10">Popular flashcard sets</h2>
 
       {/* Card Grid */}
+      {/* Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
-        {flashcards.map((card, index) => (
+        {currentFlashcards.map((card, index) => (
           <div key={index} className="bg-white gap-8 rounded-xl shadow-sm p-4 text-left">
             <div className="flex flex-col py-6 gap-1">
               <h3 className="text-sm font-semibold mb-2 text-gray-900">{card.title}</h3>
@@ -54,7 +113,11 @@ const CTA = () => {
               </span>
             </div>
             <div className="flex items-center gap-2 mt-auto">
-              <img className="w-5 h-5 rounded-full object-cover" src={card.image} alt={`${card.user}'s avatar`} />
+              <img
+                className="w-5 h-5 rounded-full object-cover"
+                src={card.image}
+                alt={`${card.user}'s avatar`}
+              />
               <span className="text-xs text-gray-600">@{card.user}</span>
             </div>
           </div>
@@ -64,19 +127,27 @@ const CTA = () => {
       {/* Pagination */}
       <div className="flex items-center justify-center gap-4 mb-14">
         <button
-          className="bg-white w-8 h-8 flex items-center justify-center rounded-full text-lg text-gray-400 shadow-sm"
+          className="bg-white w-8 h-8 flex items-center justify-center rounded-full text-lg text-gray-400 shadow-sm disabled:opacity-50"
           aria-label="Previous page"
+          onClick={handlePrev}
+          disabled={page === 1}
         >
           ←
         </button>
-        <span className="text-sm font-medium text-gray-600">1/5</span>
+        <span className="text-sm font-medium text-gray-600">
+          {page}/{totalPages}
+        </span>
         <button
-          className="bg-white w-8 h-8 flex items-center justify-center rounded-full text-lg text-gray-400 shadow-sm"
+          className="bg-white w-8 h-8 flex items-center justify-center rounded-full text-lg text-gray-400 shadow-sm disabled:opacity-50"
           aria-label="Next page"
+          onClick={handleNext}
+          disabled={page === totalPages}
         >
           →
         </button>
       </div>
+
+  
 
       {/* Footer Navigation */}
       <footer className="border-t pt-10 text-left text-sm text-gray-600 max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
