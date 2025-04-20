@@ -1,26 +1,11 @@
-const features = [
-  {
-    title: "Flashcards",
-    desc: "Create and study your own flashcards made by students, teachers, and experts."
-  },
-  {
-    title: "Learn Mode",
-    desc: "Use smart repetition to remember key concepts faster and better."
-  },
-  {
-    title: "Practice Tests",
-    desc: "Test yourself using personalized practice sets and quizzes."
-  }
-];
+// Features.tsx
+
 
 const Features = () => {
   return (
     <section className="bg-white py-20 px-4 sm:px-6 lg:px-16 items-center justify-center">
-      <div className="max-w-[1024px] px-16  mx-auto space-y-24">
-
-        {/* Section 1 */}
+      <div className="max-w-[1024px] mx-auto space-y-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-          {/* Text Left */}
           <div>
             <h2 className="text-[28px] sm:text-[32px] font-extrabold text-gray-900 leading-tight mb-4">
               Every class, every test, one<br />ultimate study app
@@ -30,42 +15,18 @@ const Features = () => {
               Study them anytime, anywhere with our free app.
             </p>
             <div className="flex gap-4 mt-4">
-  <img
-    src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-    alt="Download on the App Store"
-    className="h-12"
-  />
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-    alt="Get it on Google Play"
-    className="h-12"
-  />
-</div>
-
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" className="h-12" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-12" />
+            </div>
           </div>
-
-          {/* Image Right */}
           <div>
-            <img
-              src="https://images.prismic.io/quizlet-web/ZuNiTbVsGrYSvUQH_EN-GB1Flashcards.png?auto=format,compress"
-              alt="App Preview"
-              className="w-full h-auto object-contain"
-            />
+            <img src="https://images.prismic.io/quizlet-web/ZuNiTbVsGrYSvUQH_EN-GB1Flashcards.png?auto=format,compress" alt="App Preview" className="w-full h-auto object-contain rounded-xl shadow-md" />
           </div>
         </div>
-
-        {/* Section 2 */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-          {/* Image Left */}
           <div>
-            <img
-              src="https://images.prismic.io/quizlet-web/ZuNiXrVsGrYSvUQJ_EN-GB1MagicNotes.png?auto=format,compress"
-              alt="Study Guide"
-              className="w-full h-auto object-contain"
-            />
+            <img src="https://images.prismic.io/quizlet-web/ZuNiXrVsGrYSvUQJ_EN-GB1MagicNotes.png?auto=format,compress" alt="Study Guide" className="w-full h-auto object-contain rounded-xl shadow-md" />
           </div>
-
-          {/* Text Right */}
           <div>
             <h2 className="text-[28px] sm:text-[32px] font-extrabold text-gray-900 leading-tight mb-4">
               Make studying class material<br />quick and easy
@@ -78,7 +39,6 @@ const Features = () => {
             </button>
           </div>
         </div>
-
       </div>
     </section>
   );

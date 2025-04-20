@@ -1,4 +1,4 @@
-
+// App.tsx
 import CTA from "./components/CTA";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
