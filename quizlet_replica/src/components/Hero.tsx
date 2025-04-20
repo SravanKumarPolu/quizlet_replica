@@ -66,17 +66,18 @@ const Hero = () => {
           </button>
         </div>
       </div>
-
       <div className="w-full flex justify-center mt-16">
-  {/* Carousel Container */}
   <div className="relative w-full max-w-[1024px] flex items-center justify-center">
     {/* Left Arrow */}
     <button
       onClick={() => scrollCard("left")}
       aria-label="Scroll Left"
-      className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+      className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-30 w-[64px] h-[64px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
     >
-      <FaChevronLeft />
+    
+      <FaChevronLeft className=" w-2/3 flex justify-center " />
+ 
+      
     </button>
 
     {/* Scrollable Card Container */}
@@ -87,21 +88,25 @@ const Hero = () => {
       {cards.map(({ title, bg, img }) => (
         <div
           key={title}
-          className={`snap-start ${bg} min-w-[260px] rounded-[28px] p-6 text-left flex flex-col justify-between shadow-sm min-h-[360px] transition-transform duration-300 hover:scale-105`}
+          className="snap-start min-w-[260px] min-h-[360px]"
         >
-          <h3
-            className={`text-[18px] font-extrabold mb-4 text-center ${
-              bg.includes("text-white") ? "text-white" : "text-black"
-            }`}
+          <div
+            className={`${bg} rounded-[28px] p-6 text-left flex flex-col justify-between shadow-sm h-full transform transition-transform duration-300 hover:scale-105`}
           >
-            {title}
-          </h3>
-          <div className="bg-white rounded-[20px] p-4 shadow-inner text-center">
-            <img
-              src={img}
-              alt={title}
-              className="w-full h-auto object-contain rounded"
-            />
+            <h3
+              className={`text-[18px] font-extrabold mb-4 text-center ${
+                bg.includes("text-white") ? "text-white" : "text-black"
+              }`}
+            >
+              {title}
+            </h3>
+            <div className="bg-white rounded-[20px] p-4 shadow-inner text-center">
+              <img
+                src={img}
+                alt={title}
+                className="w-full h-auto object-contain rounded"
+              />
+            </div>
           </div>
         </div>
       ))}
@@ -111,12 +116,14 @@ const Hero = () => {
     <button
       onClick={() => scrollCard("right")}
       aria-label="Scroll Right"
-      className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+      className="absolute -right-4 top-1/2  transform -translate-y-1/2 z-30 w-[64px] h-[64px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
     >
-      <FaChevronRight />
+
+      <FaChevronRight className=" w-2/3 flex justify-center " />
     </button>
   </div>
 </div>
+
 
     </section>
   );
