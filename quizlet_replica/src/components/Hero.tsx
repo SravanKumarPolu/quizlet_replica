@@ -67,54 +67,57 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Carousel */}
-      <div className="mt-16 relative w-full">
-        {/* Left Arrow */}
-        <button
-          onClick={() => scrollCard("left")}
-          aria-label="Scroll Left"
-          className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
-        >
-          <FaChevronLeft />
-        </button>
+      <div className="w-full flex justify-center mt-16">
+  {/* Carousel Container */}
+  <div className="relative w-full max-w-[1024px] flex items-center justify-center">
+    {/* Left Arrow */}
+    <button
+      onClick={() => scrollCard("left")}
+      aria-label="Scroll Left"
+      className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+    >
+      <FaChevronLeft />
+    </button>
 
-        {/* Scrollable Card Container */}
+    {/* Scrollable Card Container */}
+    <div
+      ref={scrollRef}
+      className="flex snap-x snap-mandatory gap-6 px-6 py-2 w-full overflow-x-auto scroll-smooth scrollbar-hide"
+    >
+      {cards.map(({ title, bg, img }) => (
         <div
-          ref={scrollRef}
-          className="flex snap-x snap-mandatory gap-6 px-6 py-2 mx-auto w-full max-w-[1240px] overflow-x-auto scroll-smooth scrollbar-hide"
+          key={title}
+          className={`snap-start ${bg} min-w-[260px] rounded-[28px] p-6 text-left flex flex-col justify-between shadow-sm min-h-[360px] transition-transform duration-300 hover:scale-105`}
         >
-          {cards.map(({ title, bg, img }) => (
-            <div
-              key={title}
-              className={`snap-start ${bg} min-w-[260px] rounded-[28px] p-6 text-left flex flex-col justify-between shadow-sm min-h-[360px] transition-transform duration-300 hover:scale-105`}
-            >
-              <h3
-                className={`text-[18px] font-extrabold mb-4 text-center ${
-                  bg.includes("text-white") ? "text-white" : "text-black"
-                }`}
-              >
-                {title}
-              </h3>
-              <div className="bg-white rounded-[20px] p-4 shadow-inner text-center">
-                <img
-                  src={img}
-                  alt={title}
-                  className="w-full h-auto object-contain rounded"
-                />
-              </div>
-            </div>
-          ))}
+          <h3
+            className={`text-[18px] font-extrabold mb-4 text-center ${
+              bg.includes("text-white") ? "text-white" : "text-black"
+            }`}
+          >
+            {title}
+          </h3>
+          <div className="bg-white rounded-[20px] p-4 shadow-inner text-center">
+            <img
+              src={img}
+              alt={title}
+              className="w-full h-auto object-contain rounded"
+            />
+          </div>
         </div>
+      ))}
+    </div>
 
-        {/* Right Arrow */}
-        <button
-          onClick={() => scrollCard("right")}
-          aria-label="Scroll Right"
-          className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
-        >
-          <FaChevronRight />
-        </button>
-      </div>
+    {/* Right Arrow */}
+    <button
+      onClick={() => scrollCard("right")}
+      aria-label="Scroll Right"
+      className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+    >
+      <FaChevronRight />
+    </button>
+  </div>
+</div>
+
     </section>
   );
 };
