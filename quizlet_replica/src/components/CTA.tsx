@@ -155,7 +155,7 @@ const CTA = () => {
       <footer className="border-t pt-10 text-left text-sm text-gray-600 max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
         <div>
           <h4 className="font-bold text-gray-800 mb-2">About us</h4>
-          <ul className="space-y-1">
+          <ul className=" space-y-5 ">
             <li>About Quizlet</li>
             <li>Careers</li>
             <li>Advertise with us</li>
@@ -163,7 +163,7 @@ const CTA = () => {
         </div>
         <div>
           <h4 className="font-bold text-gray-800 mb-2">For Students</h4>
-          <ul className="space-y-1">
+          <ul className="space-y-5">
             <li>Flashcards</li>
             <li>Test</li>
             <li>Learn</li>
@@ -175,7 +175,7 @@ const CTA = () => {
         </div>
         <div>
           <h4 className="font-bold text-gray-800 mb-2">For teachers</h4>
-          <ul className="space-y-1">
+          <ul className="space-y-5 ">
             <li>Live</li>
             <li>Blog</li>
             <li>Quizlet Plus for teachers</li>
@@ -183,7 +183,7 @@ const CTA = () => {
         </div>
         <div>
           <h4 className="font-bold text-gray-800 mb-2">Resources</h4>
-          <ul className="space-y-1">
+          <ul className="space-y-5 ">
             <li>Help centre</li>
             <li>Sign up</li>
             <li>Honour Code</li>
