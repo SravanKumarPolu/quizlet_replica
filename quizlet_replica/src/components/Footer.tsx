@@ -33,7 +33,7 @@ const Footer = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-2 gap-x-4 text-sm text-gray-700 mb-8">
             {countries.map((country, index) => (
-              <span key={index} className="hover:underline cursor-pointer">
+              <span key={index} className="hover:underline cursor-pointer font-semibold">
                 {country}
               </span>
             ))}
@@ -75,7 +75,7 @@ const Footer = () => {
           <div className="mt-6 text-center">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-sm text-blue-500 hover:underline"
+              className="text-sm text-blue-700 font-bold cursor-pointer hover:underline"
             >
               Back to top
             </button>
