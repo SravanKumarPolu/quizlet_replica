@@ -66,16 +66,16 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div className="w-full flex justify-center mt-16">
-  <div className="relative w-full max-w-[1024px] flex items-center justify-center">
+      <div className="w-full flex justify-center mt-16 min-h-[390px]">
+  <div className="relative w-full max-w-[1024px] flex items-center justify-center ">
     {/* Left Arrow */}
     <button
       onClick={() => scrollCard("left")}
       aria-label="Scroll Left"
-      className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-30 w-[64px] h-[64px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+      className="absolute -left-4 top-1/2 cursor-pointer  transform -translate-y-1/2 z-30 w-[64px] h-[64px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
     >
     
-      <FaChevronLeft className=" w-2/3 flex justify-center " />
+      <FaChevronLeft className=" w-2/3 flex justify-center cursor-pointer " />
  
       
     </button>
@@ -83,7 +83,7 @@ const Hero = () => {
     {/* Scrollable Card Container */}
     <div
       ref={scrollRef}
-      className="flex snap-x snap-mandatory gap-6 px-6 py-2 w-full overflow-x-auto scroll-smooth scrollbar-hide"
+      className="flex snap-x snap-mandatory   gap-6 px-6 py-2 w-full overflow-x-auto scroll-smooth scrollbar-hide "
     >
       {cards.map(({ title, bg, img }) => (
         <div
@@ -91,7 +91,7 @@ const Hero = () => {
           className="snap-start min-w-[260px] min-h-[360px]"
         >
           <div
-            className={`${bg} rounded-[28px] p-6 text-left flex flex-col justify-between shadow-sm h-full transform transition-transform duration-300 hover:scale-105`}
+            className={`${bg} rounded-[28px] p-6 text-left flex flex-col justify-between shadow-md h-full transform transition-transform duration-300 hover:scale-[1.1] cursor-pointer`}
           >
             <h3
               className={`text-[18px] font-extrabold mb-4 text-center ${
@@ -116,7 +116,7 @@ const Hero = () => {
     <button
       onClick={() => scrollCard("right")}
       aria-label="Scroll Right"
-      className="absolute -right-4 top-1/2  transform -translate-y-1/2 z-30 w-[64px] h-[64px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+      className="absolute -right-4 top-1/2  transform -translate-y-1/2 z-30 w-[64px] h-[64px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition cursor-pointer"
     >
 
       <FaChevronRight className=" w-2/3 flex justify-center " />
