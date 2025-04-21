@@ -101,11 +101,11 @@ const CTA = () => {
     <section className="bg-[#f6f7fb] text-center py-16 px-4">
       <h2 className="text-xl font-semibold text-gray-800 mb-10">Popular flashcard sets</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
+   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
   {currentFlashcards.map((card, index) => (
     <div
       key={index}
-      className="group bg-white gap-8 rounded-xl shadow-sm p-4 text-left transition-all duration-300 border-b-4 border-transparent hover:border-blue-600 hover:shadow-md"
+      className="group bg-white cursor-pointer gap-8 rounded-xl shadow-sm p-4 text-left transition-all duration-300 border-b-4 border-transparent hover:border-blue-600 hover:shadow-md"
     >
       <div className="flex flex-col py-6 gap-1">
         <h3 className="text-sm font-semibold mb-2 text-gray-900">{card.title}</h3>
